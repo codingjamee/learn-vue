@@ -1,25 +1,20 @@
 <template>
   <div>board detail</div>
   <div>{{ boardDetail }}</div>
-  <button>수정하기</button>
+  <button @click="editBoard">수정하기</button>
   <button @click="deleteBoard">삭제하기</button>
 </template>
 
 <script>
-import { deleteData, getData } from "@/api";
+import { deleteData } from "@/api";
 export default {
   data() {
     return {
-      boardDetail: {},
+      boardDetail: this.$store.state.boardData,
     };
   },
   created() {
-    getData(`boards/${this.$route.params.id}/`)
-      .then((response) => (this.boardDetail = response.data))
-      .catch((error) => {
-        console.error("Failed to fetch board details:", error);
-        this.$router.push("/board");
-      });
+    this.$store.dispatch("FETCH_DATA", this.$route.params.id);
   },
   methods: {
     deleteBoard() {
@@ -32,6 +27,9 @@ export default {
         .catch((error) => {
           console.error("Failed to delete board details:", error);
         });
+    },
+    editBoard() {
+      this.$router.push(`/edit/${this.$route.params.id}`);
     },
   },
 };
