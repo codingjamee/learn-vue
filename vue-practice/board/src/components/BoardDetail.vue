@@ -2,6 +2,7 @@
   <div>board detail</div>
   <div>{{ boardDetail }}</div>
   <button @click="editBoard">수정하기</button>
+  <button @click="this.$router.push(`/board`)">목록으로</button>
   <button @click="deleteBoard">삭제하기</button>
 </template>
 

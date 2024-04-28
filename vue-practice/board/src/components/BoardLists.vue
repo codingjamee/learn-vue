@@ -25,12 +25,10 @@
             board.create_at
           }}</router-link>
         </th>
+        <hr />
       </tbody>
     </table>
     <hr />
-    <ul>
-      <li v-for="board in boards" v-bind:key="board.id"></li>
-    </ul>
   </div>
 </template>
 
