@@ -11,3 +11,7 @@ export const deleteData = (id) => {
 export const putData = ({ id, data }) => {
   return axios.put(`/api/${id}`, { ...data });
 };
+
+export const postData = (data) => {
+  return axios.post(`/api/boards/`, { ...data });
+};

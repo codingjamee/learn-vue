@@ -29,6 +29,7 @@
       </tbody>
     </table>
     <hr />
+    <button @click="this.$router.push(`newPost`)">글 작성하기</button>
   </div>
 </template>
 
