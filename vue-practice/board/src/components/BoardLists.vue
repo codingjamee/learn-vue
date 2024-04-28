@@ -10,11 +10,21 @@
         </tr>
       </thead>
       <tbody v-for="(board, index) in boards" v-bind:key="board.id">
-        <router-link v-bind:to="`/board/${board.id}`">
-          <th>{{ index }}</th>
-          <th>{{ board.title }}</th>
-          <th>{{ board.create_at }}</th>
-        </router-link>
+        <th>
+          <router-link v-bind:to="`/board/${board.id}`">{{
+            index
+          }}</router-link>
+        </th>
+        <th>
+          <router-link v-bind:to="`/board/${board.id}`">{{
+            board.title
+          }}</router-link>
+        </th>
+        <th>
+          <router-link v-bind:to="`/board/${board.id}`">{{
+            board.create_at
+          }}</router-link>
+        </th>
       </tbody>
     </table>
     <hr />
